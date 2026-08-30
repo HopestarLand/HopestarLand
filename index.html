@@ -3,169 +3,777 @@
 <head>
 <link rel="icon" href="HPS_Logo.png">
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مبین هوپ استار | هوپ استارلند</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مبین هوپ استار | هوپ استارلند</title>
+
 <style>
-*{box-sizing:border-box}
+
+*{
+    box-sizing:border-box
+}
+
 body{
-margin:0;min-height:100vh;color:#eee;font-family:Tahoma,"Segoe UI",sans-serif;
-background:linear-gradient(rgba(8,5,20,.7),rgba(8,5,20,.85)),url("HopestarLand_Scene.png") center/cover fixed no-repeat
-}
-header{padding:18px 24px;background:rgba(31,12,70,.9);border-bottom:1px solid #9c4dff;box-shadow:0 4px 25px #0008}
-.header-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{font-size:24px;font-weight:900;white-space:nowrap}
-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-nav a{padding:10px 14px;border-radius:12px;color:#fff;text-decoration:none;font-weight:700;background:#ffffff12;border:1px solid #ffffff1c;transition:.25s}
-nav a:hover{transform:translateY(-2px);background:#8a2be255;box-shadow:0 0 18px #8a2be288}
-.profile{max-width:1100px;margin:35px auto 0;padding:0 20px}
-.profile-box{display:flex;align-items:center;gap:14px;width:max-content;padding:12px 18px 12px 12px;border-radius:20px;background:#140f23cc;border:1px solid #ae5cff73}
-.profile-box img{width:68px;height:68px;border-radius:50%;object-fit:cover;border:3px solid #9c4dff;box-shadow:0 0 18px #9c4dffaa}
-.followers{font-size:25px;font-weight:900}.followers small{display:block;font-size:12px;color:#bbb}
-.hero{max-width:900px;margin:45px auto 30px;padding:25px;text-align:center}
-.hero h1{font-size:clamp(30px,6vw,55px);text-shadow:0 0 22px #a34dffbf}
-.hero h2{font-size:clamp(17px,3vw,25px)}.hero p{color:#ccc}
-.games{max-width:900px;margin:30px auto 55px;padding:0 20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.game-card{overflow:hidden;background:#191622e6;border:2px solid #6200ea;border-radius:18px;text-align:center;transition:.3s;box-shadow:0 10px 35px #0004}
-.game-card:hover{transform:translateY(-7px);box-shadow:0 0 28px #6200eab8}
-.game-card img{width:100%;height:210px;display:block;object-fit:cover}
-.game-content{padding:18px}.game-content h3{margin:0 0 15px;font-size:22px}
-.download-btn,.more-btn{display:inline-block;padding:11px 28px;color:#fff;background:linear-gradient(135deg,#6200ea,#9c27b0);border-radius:10px;text-decoration:none;font-weight:800;transition:.25s}
-.download-btn:hover,.more-btn:hover{transform:scale(1.05);box-shadow:0 0 20px #9c27b0b3}
-.news{max-width:650px;margin:0 auto 50px;padding:24px;text-align:center;background:#191622e6;border:1px solid #6200eaaa;border-radius:18px}
-footer{padding:25px;text-align:center;color:#aaa;background:#080514bf}
-@media(max-width:700px){.header-inner{flex-direction:column}.games{grid-template-columns:1fr}.profile{display:flex;justify-content:center}}
-
-/* صفحه افتتاحیه و شمارش معکوس */
-#opening-overlay{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(7,3,18,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:opacity .8s ease,visibility .8s ease}
-#opening-overlay.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.opening-box{width:min(620px,94vw);padding:35px 25px;text-align:center;border:1px solid rgba(190,100,255,.55);border-radius:28px;background:rgba(20,12,38,.72);box-shadow:0 0 45px rgba(120,0,255,.35)}
-.opening-box h1{margin:0 0 12px;font-size:clamp(28px,6vw,48px);color:#fff;text-shadow:0 0 20px #a34dff}
-.opening-box p{margin:0 0 25px;color:#ddd;font-size:16px}
-.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;direction:ltr}
-.time-box{padding:18px 8px;border-radius:16px;background:rgba(98,0,234,.18);border:1px solid rgba(170,90,255,.35)}
-.time-box strong{display:block;font-size:clamp(25px,6vw,42px);color:#fff}
-.time-box span{font-size:12px;color:#bbb}
-.opening-note{margin-top:22px!important;margin-bottom:0!important;font-size:12px!important;color:#aaa!important}
-@media(max-width:450px){.countdown{gap:7px}.time-box{padding:14px 5px}.time-box strong{font-size:26px}}
-</style>
-</head>
-<body>
-<script>
-        alert('😊👋 خوش آمدید به سایت رسمی هوپ استارلند 😊👋');
-    </script>
-  <!-- صفحه افتتاحیه -->
-<div id="opening-overlay">
-  <div class="opening-box">
-    <h1>🚀 افتتاحیه سایت 🚀</h1>
-    <p>به‌زودی سایت هوپ استارلند رسماً افتتاح می‌شود!</p>
-    <div class="countdown">
-      <div class="time-box"><strong id="days">00</strong><span>روز</span></div>
-      <div class="time-box"><strong id="hours">00</strong><span>ساعت</span></div>
-      <div class="time-box"><strong id="minutes">00</strong><span>دقیقه</span></div>
-      <div class="time-box"><strong id="seconds">00</strong><span>ثانیه</span></div>
-    </div>
-    <p class="opening-note">پس از پایان شمارش، این صفحه به‌صورت خودکار کنار می‌رود.</p>
-  </div>
-</div>
-
-
-<header>
-<div class="header-inner">
-<div class="brand">🎮 هوپ استارلند</div>
-<nav>
-<a href="https://www.instagram.com/mobiin_hopestar" target="_blank" rel="noopener">📷 اینستاگرام</a>
-<a href="https://t.me/mobinHopestar" target="_blank" rel="noopener">✈️ تلگرام</a>
-<a href="https://www.aparat.com/mobin.Hopestar" target="_blank" rel="noopener">▶️ آپارات</a>
-<a href="https://rubika.ir/mobinHopestar" target="_blank" rel="noopener">💬 روبیکا</a>
-</nav>
-</div>
-</header>
-
-<section class="profile">
-<div class="profile-box">
-<img src="mobin8.jpg" alt="پروفایل مبین هوپ استار">
-<div class="followers">1200K<small>دنبال‌کننده</small></div>
-</div>
-</section>
-
-<section class="hero">
-<h1>🎮 هوپ استارلند 🎮</h1>
-<h2>رفقا به سایت هوپ استارلند خوش آمدید ❤️</h2>
-<p>اینجا اخبار کانال، بازی‌ها و لینک‌های مهم قرار می‌گیرد.</p>
-</section>
-
-<section class="games">
-<article class="game-card">
-<img src="https://gold-team.org/wp-content/webp-express/webp-images/uploads/kebab.jpg.webp" alt="کباب شف">
-<div class="game-content">
-<h3>کباب شف</h3>
-<a class="download-btn" href="https://edge17.81.ir.cdn.ir/Online/Kebab/" target="_blank" rel="noopener">دانلود</a>
-</div>
-</article>
-
-<article class="game-card">
-<img src="https://gold-team.org/wp-content/webp-express/webp-images/uploads/Rust-Gold-Team.jpg.webp" alt="Rust">
-<div class="game-content">
-<h3>Rust</h3>
-<a class="download-btn" href="https://edge10.81.ir.cdn.ir/Online/Rust/" target="_blank" rel="noopener">دانلود</a>
-</div>
-</article>
-</section>
-
-<section class="news">
-<h2>📰 اخبار کانال مبین هوپ استار</h2>
-<p>خبر فوری: اضافه شدن ویدیو های آموزشی.</p>
-<p> می تونید در کانال روبیکا مشاهده کنید.</p>
-<a class="more-btn" href="https://rubika.ir/mobinHopestar" target="_blank" rel="noopener">بیشتر</a>
-</section>
-
-<footer>© 2026 HopestarLand — مبین هوپ استار</footer>
-
-<script>
-const OVERLAY_KEY="hopestarland_opening_deadline_v1";
-const CLOSED_KEY="hopestarland_opening_closed_v1";
-const overlay=document.getElementById("opening-overlay");
-
-function closeOpening(){
-    overlay.classList.add("hidden");
-    localStorage.setItem(CLOSED_KEY,"1");
+    margin:0;
+    min-height:100vh;
+    color:#eee;
+    font-family:Tahoma,"Segoe UI",sans-serif;
+    background:
+        linear-gradient(rgba(8,5,20,.7),rgba(8,5,20,.85)),
+        url("HopestarLand_Scene.png") center/cover fixed no-repeat
 }
 
-if(localStorage.getItem(CLOSED_KEY)==="1"){
-    closeOpening();
+header{
+    padding:18px 24px;
+    background:rgba(31,12,70,.9);
+    border-bottom:1px solid #9c4dff;
+    box-shadow:0 4px 25px #0008
 }
-else{
-    let deadline=new Date("2026-08-12T14:20:50+03:30").getTime();
 
-    function updateCountdown(){
-        const remaining=deadline-Date.now();
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px
+}
 
-        if(remaining<=0){
-            closeOpening();
-            clearInterval(timer);
-            return;
-        }
+.brand{
+    font-size:24px;
+    font-weight:900;
+    white-space:nowrap
+}
 
-        const total=Math.floor(remaining/1000);
+nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px
+}
 
-        document.getElementById("days").textContent=
-            String(Math.floor(total/86400)).padStart(2,"0");
+nav a{
+    padding:10px 14px;
+    border-radius:12px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    background:#ffffff12;
+    border:1px solid #ffffff1c;
+    transition:.25s
+}
 
-        document.getElementById("hours").textContent=
-            String(Math.floor((total%86400)/3600)).padStart(2,"0");
+nav a:hover{
+    transform:translateY(-2px);
+    background:#8a2be255;
+    box-shadow:0 0 18px #8a2be288
+}
 
-        document.getElementById("minutes").textContent=
-            String(Math.floor((total%3600)/60)).padStart(2,"0");
+.profile{
+    max-width:1100px;
+    margin:35px auto 0;
+    padding:0 20px
+}
 
-        document.getElementById("seconds").textContent=
-            String(total%60).padStart(2,"0");
+.profile-box{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    width:max-content;
+    padding:12px 18px 12px 12px;
+    border-radius:20px;
+    background:#140f23cc;
+    border:1px solid #ae5cff73
+}
+
+.profile-box img{
+    width:68px;
+    height:68px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #9c4dff;
+    box-shadow:0 0 18px #9c4dffaa
+}
+
+.followers{
+    font-size:25px;
+    font-weight:900
+}
+
+.followers small{
+    display:block;
+    font-size:12px;
+    color:#bbb
+}
+
+.hero{
+    max-width:900px;
+    margin:45px auto 30px;
+    padding:25px;
+    text-align:center
+}
+
+.hero h1{
+    font-size:clamp(30px,6vw,55px);
+    text-shadow:0 0 22px #a34dffbf
+}
+
+.hero h2{
+    font-size:clamp(17px,3vw,25px)
+}
+
+.hero p{
+    color:#ccc
+}
+
+.games{
+    max-width:900px;
+    margin:30px auto 55px;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:24px
+}
+
+.game-card{
+    overflow:hidden;
+    background:#191622e6;
+    border:2px solid #6200ea;
+    border-radius:18px;
+    text-align:center;
+    transition:.3s;
+    box-shadow:0 10px 35px #0004
+}
+
+.game-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 0 28px #6200eab8
+}
+
+.game-card img{
+    width:100%;
+    height:210px;
+    display:block;
+    object-fit:cover
+}
+
+.game-content{
+    padding:18px
+}
+
+.game-content h3{
+    margin:0 0 15px;
+    font-size:22px
+}
+
+.download-btn,
+.more-btn{
+    display:inline-block;
+    padding:11px 28px;
+    color:#fff;
+    background:linear-gradient(135deg,#6200ea,#9c27b0);
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:800;
+    transition:.25s
+}
+
+.download-btn:hover,
+.more-btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px #9c27b0b3
+}
+
+.news{
+    max-width:650px;
+    margin:0 auto 50px;
+    padding:24px;
+    text-align:center;
+    background:#191622e6;
+    border:1px solid #6200eaaa;
+    border-radius:18px
+}
+
+footer{
+    padding:25px;
+    text-align:center;
+    color:#aaa;
+    background:#080514bf
+}
+
+@media(max-width:700px){
+
+    .header-inner{
+        flex-direction:column
     }
 
-    updateCountdown();
+    .games{
+        grid-template-columns:1fr
+    }
 
-    const timer=setInterval(updateCountdown,1000);
+    .profile{
+        display:flex;
+        justify-content:center
+    }
+
 }
-</script>
+
+
+.game-card img {
+    width: 100%;
+    height: 210px;
+    display: block;
+    object-fit: contain;
+    background: #111;
+}
+
+</style>
+</head>
+
+<body>
+<script>         alert('😊👋 خوش آمدید به سایت رسمی هوپ استارلند 😊👋');     </script>
+
+<header>
+
+<div class="header-inner">
+
+<div class="brand">
+🎮 هوپ استارلند
+</div>
+
+<nav>
+
+<a href="https://www.instagram.com/mobiin_hopestar"
+   target="_blank"
+   rel="noopener">
+📷 اینستاگرام
+</a>
+
+<a href="https://t.me/mobinHopestar"
+   target="_blank"
+   rel="noopener">
+✈️ تلگرام
+</a>
+
+<a href="https://www.aparat.com/mobin.Hopestar"
+   target="_blank"
+   rel="noopener">
+▶️ آپارات
+</a>
+
+<a href="https://rubika.ir/mobinHopestar"
+   target="_blank"
+   rel="noopener">
+💬 روبیکا
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="profile">
+
+<div class="profile-box">
+
+<img
+    src="mobin8.jpg"
+    alt="پروفایل مبین هوپ استار"
+>
+
+<div class="followers">
+1200K
+<small>دنبال‌کننده</small>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="hero">
+
+<h1>
+🎮 هوپ استارلند 🎮
+</h1>
+
+<h2>
+رفقا به سایت هوپ استارلند خوش آمدید ❤️
+</h2>
+
+<p>
+اینجا اخبار کانال، بازی‌ها و لینک‌های مهم قرار می‌گیرد.
+</p>
+
+</section>
+
+
+<section class="games">
+
+
+<!-- =========================
+     Kebab Chef
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="kebab.jpg" alt="کباب شف">
+
+<div class="game-content">
+
+<h3>
+کباب شف
+</h3>
+
+<a
+    class="download-btn"
+    href="https://edge17.81.ir.cdn.ir/Online/Kebab/"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =========================
+     Rust
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="rast.jpg"
+    alt="Rust"
+>
+
+<div class="game-content">
+
+<h3>
+Rust
+</h3>
+
+<a
+    class="download-btn"
+    href="https://edge10.81.ir.cdn.ir/Online/Rust/"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =========================
+     Assassin's Creed Black Flag
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="asa.jpg"
+    alt="Assassin's Creed Black Flag"
+>
+
+<div class="game-content">
+
+<h3>
+Assassin's Creed Black Flag
+</h3>
+
+<a
+    class="download-btn"
+    href="https://edge11.81.ir.cdn.ir/Offline/ACBlackFlagResynced/voices38/"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =========================
+     PEAK
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="a31.jpg"
+    alt="PEAK"
+>
+
+<div class="game-content">
+
+<h3>
+PEAK
+</h3>
+
+<a
+    class="download-btn"
+    href="https://gold-team.org/wp-content/uploads/peak.webp"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =========================
+     Funnel Runners
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="a32.jpg"
+    alt="Funnel Runners"
+>
+
+<div class="game-content">
+
+<h3>
+Funnel Runners
+</h3>
+
+<a
+    class="download-btn"
+    href="https://edge10.81.ir.cdn.ir/Online/FunnelRunners/"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =========================
+     Forza Horizon 6
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="a31.jpg"
+    alt="Forza Horizon 6"
+>
+
+<div class="game-content">
+
+<h3>
+Forza Horizon 6
+</h3>
+
+<a
+    class="download-btn"
+    href="https://edge10.81.ir.cdn.ir/Online/FH6/Game/"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =========================
+     House Flipper 2
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="a23.jpg"
+    alt="House Flipper 2"
+>
+
+<div class="game-content">
+
+<h3>
+House Flipper 2
+</h3>
+
+<a
+    class="download-btn"
+    href="https://edge09.81.ir.cdn.ir/Online/HouseFlipper2/"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =========================
+     The Backrooms Rescue Expedition
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="a27.jpg"
+    alt="The Backrooms Rescue Expedition"
+>
+
+<div class="game-content">
+
+<h3>
+The Backrooms Rescue Expedition
+</h3>
+
+<a
+    class="download-btn"
+    href="https://edge10.81.ir.cdn.ir/Online/TheBackroomsRescueExpedition/"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =========================
+     Hold Your King
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="a26.jpg"
+    alt="Hold Your King"
+>
+
+<div class="game-content">
+
+<h3>
+Hold Your King
+</h3>
+
+<a
+    class="download-btn"
+    href="https://edge17.81.ir.cdn.ir/Online/HoldYourKing/"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =========================
+     A Gentlemen's Dispute
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="a24.jpg"
+    alt="A Gentlemen's Dispute"
+>
+
+<div class="game-content">
+
+<h3>
+A Gentlemen's Dispute
+</h3>
+
+<a
+    class="download-btn"
+    href="https://edge03.81.ir.cdn.ir/Online/AGentlemensDispute/"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =========================
+     Stronghold Crusader
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="a25.jpg"
+    alt="Stronghold Crusader: Definitive Edition"
+>
+
+<div class="game-content">
+
+<h3>
+Stronghold Crusader: Definitive Edition
+</h3>
+
+<a
+    class="download-btn"
+    href="https://edge03.81.ir.cdn.ir/Online/StrongholdCrusaderDE/"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =========================
+     Human Fall Flat
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="a28.jpg"
+    alt="Human Fall Flat"
+>
+
+<div class="game-content">
+
+<h3>
+Human Fall Flat
+</h3>
+
+<a
+    class="download-btn"
+    href="https://edge09.81.ir.cdn.ir/Online/Human/"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =========================
+     Shift At Midnight
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="a29.jpg"
+    alt="Shift At Midnight"
+>
+
+<div class="game-content">
+
+<h3>
+Shift At Midnight
+</h3>
+
+<a
+    class="download-btn"
+    href="https://edge09.81.ir.cdn.ir/Online/ShiftAtMidnight/"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+
+<!-- =========================
+     How to Fish
+========================= -->
+
+<article class="game-card">
+
+<img
+    src="fish.jpg"
+    alt="Shift At Midnight"
+>
+
+<div class="game-content">
+
+<h3>
+How to Fish
+</h3>
+
+<a
+    class="download-btn"
+    href="https://edge09.81.ir.cdn.ir/Online/HowtoFish/"
+    target="_blank"
+    rel="noopener"
+>
+دانلود
+</a>
+
+</div>
+
+</article>
+  
+</section>
+
+
+<section class="news">
+
+<h2>
+📰 اخبار کانال مبین هوپ استار
+</h2>
+
+<p>
+خبر فوری: تا اطلاع ثانویه ویدیو نداریم.
+</p>
+
+<p>
+به دلیل امتحانات خرداد ماه مبین.
+</p>
+
+<a
+    class="more-btn"
+    href="https://rubika.ir/mobinHopestar"
+    target="_blank"
+    rel="noopener"
+>
+بیشتر
+</a>
+
+</section>
+
+
+<footer>
+© 2026 HopestarLand — مبین هوپ استار
+</footer>
 
 
 </body>
